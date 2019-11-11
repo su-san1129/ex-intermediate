@@ -19,8 +19,8 @@
 <button>検索</button>
 </form>
 <div th:text="${errors}"></div>
-<div th:if="${cloth}">
-<table>
+
+<table th:each="cloth:${clothList}">
   <tr class="odd">
     <td>ジャンル</td>
     <td th:text="${cloth.genre}"></td>
@@ -34,7 +34,7 @@
     <td th:text="${#numbers.formatInteger(cloth.price, 2, 'COMMA')}"></td>
   </tr>
 </table>
-</div>
+
 
 </body>
 </html>

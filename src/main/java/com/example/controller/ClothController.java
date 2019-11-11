@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,11 +44,11 @@ public class ClothController {
 	@RequestMapping("/input")
 	public String input(Integer gender, String color, Model model) {
 		System.out.println(gender + ":" + color);
-		Cloth cloth = clothService.searchByColorAndGender(gender, color);
-		if(cloth == null) {
+		List<Cloth> clothList = clothService.searchByColorAndGender(gender, color);
+		if(clothList.size() == 0) {
 			model.addAttribute("errors", "該当する情報がありませんでした。");
 		} else {
-			model.addAttribute("cloth", cloth);			
+			model.addAttribute("clothList", clothList);			
 		}
 		return "clothes-search";
 	}

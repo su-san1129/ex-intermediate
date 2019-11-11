@@ -1,6 +1,8 @@
 package com.example.repository;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -44,17 +46,11 @@ public class ClothRepository {
 	 * @param color 検索された色
 	 * @return 検索された衣類
 	 */
-	public Cloth findByClothesColorAndGender(Integer gender, String color){
-		try {
+	public List<Cloth> findByClothesColorAndGender(Integer gender, String color){
 			String sql = "SELECT id, category, genre, color, gender, price, size FROM clothes WHERE gender = :gender AND color = :color ORDER BY id;";
 			SqlParameterSource param = new MapSqlParameterSource().addValue("gender", gender).addValue("color", color);
-			Cloth cloth = template.queryForObject(sql, param, CLOTH_ROW_MAPPER);
-			return cloth;
-		} catch (Exception e) {
-			System.out.println("該当する情報がありませんでした。");
-			e.printStackTrace();
-			return null;
-		}
+			List<Cloth> clothList = template.query(sql, param, CLOTH_ROW_MAPPER);
+			return clothList;
 	}
 	
 	

@@ -56,7 +56,7 @@ public class HotelRepository {
 	 * ホテルを全件検索する.
 	 * 
 	 * 一件もない場合は0件を返す。
-	 * @return ホテルの全件情報。
+	 * @return ホテルの全件情報
 	 */
 	public List<Hotel> findAll(){
 		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking FROM hotels ORDER BY price";

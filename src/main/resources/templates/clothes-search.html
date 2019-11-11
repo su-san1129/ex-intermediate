@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>演習３</title>
+<link rel="stylesheet" th:href="@{/search.css}">
+</head>
+<body>
+<p><strong>衣類検索</strong></p>
+<form th:action="@{/clothes/input}">
+<input type="radio" name="gender" th:value="0" id="gender" checked><label for="gender">男</label>
+<input type="radio" name="gender" th:value="1" id="gender"><label for="gender">女</label>
+<select name="color">
+  <option th:value="赤">赤</option>
+  <option th:value="青">青</option>
+  <option th:value="白">白</option>
+  <option th:value="黄">黄</option>
+</select><br>
+<button>検索</button>
+</form>
+<div th:text="${errors}"></div>
+<div th:if="${cloth}">
+<table>
+  <tr class="odd">
+    <td>ジャンル</td>
+    <td th:text="${cloth.genre}"></td>
+  </tr>
+  <tr class="even">
+    <td>サイズ</td>
+    <td th:text="${cloth.size}"></td>
+  </tr>
+  <tr class="odd">
+    <td>価格</td>
+    <td th:text="${#numbers.formatInteger(cloth.price, 2, 'COMMA')}"></td>
+  </tr>
+</table>
+</div>
+
+</body>
+</html>

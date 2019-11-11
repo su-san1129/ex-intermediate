@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${team.teamName}"></title>
+</head>
+<body>
+	<p><strong>球団名</strong></p>
+	<p th:text="${team.teamName}"></p>
+	<p><strong>本拠地</strong></p>
+	<p th:text="${team.headquarters}"></p>
+	<p><strong>発足</strong></p>
+	<p th:text="${team.inauguration}"></p>
+	<p><strong>歴史</strong></p>
+	<pre th:text="${team.history}"></pre>
+	<a href="showLeageList.html" th:href="@{/showList}">戻る</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+table {
+	margin: 10px;
+}
+table, tr, td{
+	border: solid 1px blue;
+	border-collapse: collapse;
+	
+}
+
+td{
+	width: 200px;
+}
+
+.minWidth{
+	width: 100px;
+}
+
+.odd{
+	background-color: #CCFFFF;
+}
+
+.even{
+	background-color: aqua;
+}
